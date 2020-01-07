@@ -1,8 +1,8 @@
-import { takeEvery, call, put, all } from "redux-saga/effects";
+import { all, call, put, takeEvery } from "redux-saga/effects";
 
-import { FETCH_DATA, fetchDataSuccess, fetchDataError } from "../actions";
+import { FETCH_DATA, fetchDataError, fetchDataSuccess } from "../actions";
 
-const fetchData = (url: string) => fetch(url).then(res => res.json());
+const fetchData = (url: string) => fetch(url).then((res) => res.json());
 
 function* fetchArticles() {
   try {

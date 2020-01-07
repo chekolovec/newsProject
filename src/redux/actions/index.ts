@@ -6,12 +6,12 @@ export const fetchData = () => ({
   type: FETCH_DATA,
 });
 
-export const fetchDataSuccess = data => ({
+export const fetchDataSuccess = (data) => ({
   type: FETCH_DATA_SUCCESS,
   data,
 });
 
-export const fetchDataError = err => ({
+export const fetchDataError = (err) => ({
   type: FETCH_DATA_ERROR,
   err,
 });

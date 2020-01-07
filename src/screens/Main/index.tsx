@@ -1,23 +1,18 @@
 import React, { useEffect } from "react";
-import { ScrollView, Text } from "react-native";
 import { connect } from "react-redux";
 
-import { fetchData } from "../../redux/actions";
 import MainContent from "../../components/MainContent";
+import { fetchData } from "../../redux/actions";
 
-const MainScreen = ({ data, fetchData }) => {
+const MainScreen = ({ fetchData }) => {
   useEffect(() => {
     fetchData();
   }, []);
 
-  return (
-    <ScrollView>
-      <MainContent />
-    </ScrollView>
-  );
+  return <MainContent />;
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = {
   fetchData,

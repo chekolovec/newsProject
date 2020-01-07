@@ -1,17 +1,21 @@
 import React from "react";
-import { View } from "react-native";
+import { FlatList, View } from "react-native";
 import { connect } from "react-redux";
 
 import NewsArticle from "../NewsArticle";
-import IMainContent from "./types";
 import styles from "./styles";
+import IMainContent from "./types";
+import MenuBar from "../MenuBar";
 
-const MainContent = ({ data }: IMainContent) => {
+const MainContent = ({ data, navigation }: IMainContent) => {
   return (
     <View style={styles.wrapper}>
-      {data.map(article => (
-        <NewsArticle article={article} key={article.id} />
-      ))}
+      <MenuBar />
+      <FlatList
+        data={data}
+        renderItem={(article) => <NewsArticle article={article.item} />}
+        keyExtractor={(article) => `${article.id}`}
+      />
     </View>
   );
 };
